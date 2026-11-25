@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect } from "react";
 import en, { TranslationKeys } from "@/locales/en";
 
-type Lang = "en";
+type Lang = "en" | "ar";
 
 interface LanguageContextValue {
   lang: Lang;
@@ -27,7 +27,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const t = (key: TranslationKeys, replacements?: Record<string, string | number>): string => {
-    let str = en[key] ?? key;
+    let str: string = en[key] ?? key;
     if (replacements) {
       for (const [token, value] of Object.entries(replacements)) {
         str = str.replace(`{${token}}`, String(value));

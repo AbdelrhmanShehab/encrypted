@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function GET() {
+  // Diagnostics are for local development only; never expose them on the live site.
+  if (process.env.NODE_ENV === "production") return new NextResponse("Not found", { status: 404 });
+
   const gmailUser = process.env.GMAIL_USER;
   const gmailPass = process.env.GMAIL_PASS;
 

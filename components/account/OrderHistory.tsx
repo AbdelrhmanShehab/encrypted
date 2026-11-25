@@ -35,7 +35,7 @@ export default function OrderHistory() {
     setExpandedOrder(expandedOrder === id ? null : id);
   };
 
-  if (l  if (loading) return <div className="flex justify-center py-12"><Loader2 className="animate-spin text-[#00f23a]" /></div>;
+  if (loading) return <div className="flex justify-center py-12"><Loader2 className="animate-spin text-[#00f23a]" /></div>;
 
   if (orders.length === 0) return (
     <div>

@@ -60,7 +60,7 @@ export default function KnowUs() {
   ];
   const faqs = [...our, ...deposit];
   const ship = [...delivery, ...returns];
-  const half = (list: typeof faqs) => [list.slice(0, Math.ceil(list.length / 2)), list.slice(Math.ceil(list.length / 2))];
+  const half = (list: { q: string; a: React.ReactNode }[]) => [list.slice(0, Math.ceil(list.length / 2)), list.slice(Math.ceil(list.length / 2))];
 
   const h = "text-lg font-bold text-bone md:text-xl";
   const p = "mt-4 text-[11px] leading-6 text-bone/70 md:text-xs";
