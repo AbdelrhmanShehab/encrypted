@@ -1,0 +1,422 @@
+@import "tailwindcss";
+
+/*
+ * ENCRYPTED — black canvas, signal green and digital type.
+ * The storefront was built with light-theme utilities (bg-white, text-gray-900,
+ * purple accents…). Instead of rewriting every class, the palette itself is
+ * remapped: neutrals are inverted onto a deep forest scale, and old pink/purple
+ * accents become Encrypted sage.
+ * Use `ink` for true black (image overlays) and `bone` for true light text.
+ */
+@theme {
+  --color-ink: #000000;
+  --color-bone: #f1f5f1;
+  --color-gold: #00f23a;
+  --color-gold-soft: #76ff86;
+
+  --color-white: #000000;
+  --color-black: #f1f5f1;
+
+  --color-gray-50: #141414;
+  --color-gray-100: #1b1b1b;
+  --color-gray-200: #262626;
+  --color-gray-300: #3a3a3a;
+  --color-gray-400: #6f6a62;
+  --color-gray-500: #8f897f;
+  --color-gray-600: #aaa398;
+  --color-gray-700: #c6bfb2;
+  --color-gray-800: #ddd6c8;
+  --color-gray-900: #ede6d8;
+  --color-gray-950: #f6f1e7;
+
+  --color-zinc-50: #141414;
+  --color-zinc-100: #1b1b1b;
+  --color-zinc-200: #262626;
+  --color-zinc-300: #3a3a3a;
+  --color-zinc-400: #6f6a62;
+  --color-zinc-500: #8f897f;
+  --color-zinc-600: #aaa398;
+  --color-zinc-700: #c6bfb2;
+  --color-zinc-800: #ddd6c8;
+  --color-zinc-900: #ede6d8;
+  --color-zinc-950: #f6f1e7;
+
+  --color-neutral-50: #141414;
+  --color-neutral-100: #1b1b1b;
+  --color-neutral-200: #262626;
+  --color-neutral-300: #3a3a3a;
+  --color-neutral-400: #6f6a62;
+  --color-neutral-500: #8f897f;
+  --color-neutral-600: #aaa398;
+  --color-neutral-700: #c6bfb2;
+  --color-neutral-800: #ddd6c8;
+  --color-neutral-900: #ede6d8;
+
+  --color-stone-50: #141414;
+  --color-stone-100: #1b1b1b;
+  --color-stone-200: #262626;
+  --color-stone-300: #3a3a3a;
+  --color-stone-400: #6f6a62;
+  --color-stone-500: #8f897f;
+  --color-stone-600: #aaa398;
+  --color-stone-700: #c6bfb2;
+  --color-stone-800: #ddd6c8;
+  --color-stone-900: #ede6d8;
+
+  --color-slate-50: #141414;
+  --color-slate-100: #1b1b1b;
+  --color-slate-200: #262626;
+  --color-slate-300: #3a3a3a;
+  --color-slate-400: #6f6a62;
+  --color-slate-500: #8f897f;
+  --color-slate-600: #aaa398;
+  --color-slate-700: #c6bfb2;
+  --color-slate-800: #ddd6c8;
+  --color-slate-900: #ede6d8;
+
+  /* Former pink/purple accents → sage */
+  --color-purple-50: #11170f;
+  --color-purple-100: #192216;
+  --color-purple-200: #2d4225;
+  --color-purple-300: #00f23a;
+  --color-purple-400: #00f23a;
+  --color-purple-500: #00f23a;
+  --color-purple-600: #32fa59;
+  --color-purple-700: #76ff86;
+  --color-purple-800: #a6ffaf;
+  --color-purple-900: #d0ffd5;
+  --color-pink-50: #11170f;
+  --color-pink-100: #192216;
+  --color-pink-200: #2d4225;
+  --color-pink-300: #00f23a;
+  --color-pink-400: #00f23a;
+  --color-pink-500: #00f23a;
+  --color-pink-600: #32fa59;
+  --color-pink-700: #76ff86;
+  --color-fuchsia-400: #00f23a;
+  --color-fuchsia-500: #00f23a;
+  --color-violet-400: #00f23a;
+  --color-violet-500: #00f23a;
+  --color-rose-400: #00f23a;
+  --color-rose-500: #00f23a;
+
+  /* Status colours, tuned for a dark surface */
+  --color-red-50: #1f0f0f;
+  --color-red-100: #2a1313;
+  --color-red-200: #4a1f1f;
+  --color-red-300: #7a2e2e;
+  --color-red-400: #e57373;
+  --color-red-500: #e25b5b;
+  --color-red-600: #ef8080;
+  --color-red-700: #f4a0a0;
+  --color-red-800: #f8c0c0;
+  --color-green-50: #0f1a13;
+  --color-green-100: #13221a;
+  --color-green-200: #1f3a2a;
+  --color-green-400: #5fcf8f;
+  --color-green-500: #4cc283;
+  --color-green-600: #6fd69c;
+  --color-green-700: #8fe0b2;
+  --color-green-800: #b0ead0;
+  --color-emerald-50: #0f1a13;
+  --color-emerald-100: #13221a;
+  --color-emerald-200: #1f3a2a;
+  --color-emerald-400: #5fcf8f;
+  --color-emerald-500: #4cc283;
+  --color-emerald-600: #6fd69c;
+  --color-emerald-700: #8fe0b2;
+  --color-amber-50: #1d170c;
+  --color-amber-100: #271f10;
+  --color-amber-200: #43341a;
+  --color-amber-400: #e6b450;
+  --color-amber-500: #e0a93d;
+  --color-amber-600: #ebbd5f;
+  --color-amber-700: #f0cd85;
+  --color-amber-800: #f5dcaa;
+  --color-yellow-50: #1d170c;
+  --color-yellow-100: #271f10;
+  --color-yellow-400: #e6b450;
+  --color-yellow-500: #e0a93d;
+  --color-orange-50: #1d140c;
+  --color-orange-100: #27190f;
+  --color-orange-500: #e08a3d;
+  --color-orange-600: #eb9f5f;
+  --color-blue-50: #0e1520;
+  --color-blue-100: #121b2a;
+  --color-blue-200: #1e2d47;
+  --color-blue-400: #6ea2ef;
+  --color-blue-500: #5b8fe6;
+  --color-blue-600: #80aaf0;
+  --color-blue-700: #a2c0f4;
+  --color-blue-800: #c3d6f8;
+
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: var(--font-body);
+}
+
+html,
+body {
+  background: #000000;
+  color: var(--color-bone);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+.mono,
+code,
+kbd,
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.cyber-grid {
+  background-image: linear-gradient(rgba(0, 242, 58, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 58, .055) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, black, transparent 95%);
+}
+
+.cyber-frame {
+  border: 1px solid rgba(0, 242, 58, .32);
+  box-shadow: inset 0 0 24px rgba(0, 242, 58, .035), 0 0 22px rgba(0, 242, 58, .035);
+}
+
+.hero-mosaic {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 2fr) minmax(0, .85fr);
+  grid-template-rows: repeat(2, minmax(180px, 1fr));
+  gap: 8px;
+  height: min(43vw, 560px);
+  min-height: 340px;
+}
+
+.hero-tile { position: relative; min-width: 0; min-height: 0; overflow: hidden; isolation: isolate; background: #000; }
+.hero-popular { grid-column: 1; grid-row: 1; }
+.hero-fresh { grid-column: 1; grid-row: 2; }
+.hero-code { grid-column: 2; grid-row: 1; }
+.hero-men { grid-column: 2; grid-row: 2; }
+.hero-collection { grid-column: 3; grid-row: 1 / span 2; }
+.hero-photo-title { position: absolute; left: 50%; top: 50%; width: max-content; max-width: 90%; transform: translate(-50%,-50%); color: #fff; font-size: clamp(15px,2vw,22px); font-weight: 700; line-height: 1.2; text-shadow: 0 2px 16px #000; }
+.hero-mask { left: 0 !important; top: 0 !important; right: auto !important; bottom: auto !important; width: 43% !important; height: 100% !important; object-fit: contain; object-position: center; opacity: .9; }
+.hero-code-copy { position: absolute; left: 43%; top: 50%; transform: translateY(-50%); color: #00f23a; font-family: var(--font-terminal), var(--font-mono); font-size: clamp(18px,3.1vw,40px); line-height: 1.45; letter-spacing: .06em; text-shadow: 0 0 10px #00f23a99, 0 0 26px #00f23a44; white-space: nowrap; }
+.hero-cursor { display: inline-block; margin-left: 2px; animation: cursor-blink 1s steps(2,start) infinite; }
+@keyframes cursor-blink { to { visibility: hidden; } }
+
+@media (max-width: 700px) {
+  .hero-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: auto; height: auto; min-height: 0; gap: 6px; }
+  .hero-code { grid-column: 1 / span 2; grid-row: 1; aspect-ratio: 4 / 5; }
+  .hero-popular { grid-column: 1; grid-row: 2; }
+  .hero-fresh { grid-column: 2; grid-row: 2; }
+  .hero-men { grid-column: 1; grid-row: 3; }
+  .hero-collection { grid-column: 2; grid-row: 3; }
+  .hero-popular, .hero-fresh, .hero-men, .hero-collection { aspect-ratio: 4 / 5; }
+  .hero-mask { width: 100% !important; height: 100% !important; object-fit: cover; object-position: center 20%; opacity: .75; }
+  .hero-code-copy { left: 16px; right: 16px; top: auto; bottom: 84px; transform: none; font-size: clamp(20px,6.4vw,30px); line-height: 1.35; }
+  .hero-photo-title { left: 0; top: auto; bottom: 0; transform: none; width: 100%; max-width: 100%; padding: 36px 12px 12px; text-align: left; font-size: clamp(13px,3.8vw,17px); background: linear-gradient(to top, rgba(0,0,0,.85), transparent); }
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000;
+}
+
+input,
+select,
+textarea {
+  color: var(--color-bone);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6f6a62;
+}
+
+/* One shared container: header, every section, every page and the footer line up on the same edges. */
+.site-container {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+@media (min-width: 768px) { .site-container { padding-inline: 32px; } }
+@media (min-width: 1536px) { .site-container { max-width: 1440px; } }
+
+.mainContainer { width: 100%; position: relative; }
+
+/* Gold hairline used to frame sections */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0.6;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(120deg, #008e22 0%, #a6ffaf 45%, #00f23a 70%, #00691a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hide scrollbar everywhere */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom premium unique scrollbar for Developer Popup */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Page scrollbar */
+html {
+  scrollbar-color: #24452a #000000;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 6s ease infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-gradient-x {
+    animation: none;
+  }
+}
+
+/* ---- Figma UI kit: shared buttons, fields and headings ---- */
+.btn-green { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 5px; background: linear-gradient(90deg, #1d8f2e 0%, #00e63a 100%); padding: 12px 20px; font-size: 12px; font-weight: 600; color: #fff; transition: filter .2s, transform .1s; }
+.btn-green:hover { filter: brightness(1.12); }
+.btn-green:active { transform: scale(.98); }
+.btn-green:disabled { opacity: .5; cursor: not-allowed; filter: none; }
+.btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 5px; border: 1px solid #00f23a; padding: 11px 20px; font-size: 12px; font-weight: 500; color: #f1f5f1; transition: background .2s; }
+.btn-outline:hover { background: rgba(0, 242, 58, .1); }
+.field { width: 100%; border-radius: 6px; border: 1px solid #00f23a; background: #111; padding: 11px 12px; font-size: 12px; color: #f1f5f1; outline: none; transition: box-shadow .2s; }
+.field:focus { box-shadow: 0 0 0 2px rgba(0, 242, 58, .25); }
+.field::placeholder { color: #6b6b6b; }
+.field-label { display: block; margin-bottom: 6px; font-size: 10px; font-weight: 600; color: #f1f5f1; }
+.page-title { font-family: var(--font-display), system-ui, sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; line-height: 1.15; letter-spacing: 0; color: #00f23a; }
+.section-title { font-family: var(--font-display), system-ui, sans-serif; font-size: clamp(24px, 3vw, 32px); font-weight: 700; line-height: 1.15; letter-spacing: 0; color: #00f23a; }
+.green-line { height: 1px; background: linear-gradient(90deg, transparent, #00f23a, transparent); opacity: .7; }
+.page-shell { min-height: 100vh; background: #000; display: flex; flex-direction: column; }
+
+/* Clickable things show the pointer cursor (Tailwind's reset sets buttons back to the default arrow). */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+summary,
+select,
+label[for],
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="file"] { cursor: pointer; }
+button:disabled, [aria-disabled="true"] { cursor: not-allowed; }
+
+/* Mobile boot hero: scan line + glitch title */
+.boot-scan { position: absolute; left: 0; right: 0; top: 0; height: 110px; z-index: 20; pointer-events: none; background: linear-gradient(to bottom, transparent, rgba(0,242,58,.22)); border-bottom: 2px solid #00f23a; box-shadow: 0 6px 28px #00f23a; animation: boot-scan 1s linear forwards; }
+@keyframes boot-scan { from { transform: translateY(-110px); } to { transform: translateY(100svh); } }
+.boot-in { animation: boot-in .6s ease both; }
+@keyframes boot-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.boot-glitch { position: relative; display: inline-block; align-self: flex-start; font-family: var(--font-display), system-ui, sans-serif; font-weight: 800; letter-spacing: -.025em; line-height: 1; color: #00f23a; text-shadow: 0 0 22px rgba(0,242,58,.55); }
+.boot-glitch::before, .boot-glitch::after { content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; }
+.boot-glitch::before { color: #eafff0; clip-path: inset(0 0 60% 0); }
+.boot-glitch::after { color: #ff2a55; clip-path: inset(60% 0 0 0); }
+.boot-glitch.is-in { animation: bg-main .9s steps(1) 1; }
+.boot-glitch.is-in::before { animation: bg-a-in .9s steps(1) 1, bg-a 4s 1s steps(1) infinite; }
+.boot-glitch.is-in::after { animation: bg-b-in .9s steps(1) 1, bg-b 4s 1s steps(1) infinite; }
+@keyframes bg-main { 0% { opacity: 0; } 10% { opacity: 1; transform: translateX(-6px) skewX(8deg); } 20% { opacity: .2; } 30% { opacity: 1; transform: translateX(5px); } 45% { transform: translateX(-3px) skewX(-6deg); } 60% { opacity: .6; } 75% { opacity: 1; transform: none; } 100% { opacity: 1; transform: none; } }
+@keyframes bg-a-in { 0%, 100% { opacity: 0; } 10% { opacity: 1; transform: translateX(-8px); clip-path: inset(10% 0 55% 0); } 30% { opacity: 1; transform: translateX(7px); clip-path: inset(45% 0 20% 0); } 50% { opacity: 1; transform: translateX(-5px); clip-path: inset(0 0 70% 0); } 70% { opacity: 1; transform: translateX(4px); clip-path: inset(60% 0 5% 0); } 85% { opacity: 0; } }
+@keyframes bg-b-in { 0%, 100% { opacity: 0; } 15% { opacity: 1; transform: translateX(8px); clip-path: inset(55% 0 10% 0); } 35% { opacity: 1; transform: translateX(-7px); clip-path: inset(20% 0 45% 0); } 55% { opacity: 1; transform: translateX(5px); clip-path: inset(70% 0 0 0); } 75% { opacity: 1; transform: translateX(-4px); clip-path: inset(5% 0 60% 0); } 90% { opacity: 0; } }
+@keyframes bg-a { 0%, 88%, 100% { opacity: 0; } 89% { opacity: 1; transform: translateX(-5px); clip-path: inset(15% 0 55% 0); } 92% { opacity: 1; transform: translateX(4px); clip-path: inset(50% 0 20% 0); } 95% { opacity: 0; } }
+@keyframes bg-b { 0%, 90%, 100% { opacity: 0; } 91% { opacity: 1; transform: translateX(5px); clip-path: inset(55% 0 10% 0); } 94% { opacity: 1; transform: translateX(-4px); clip-path: inset(20% 0 45% 0); } 97% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .boot-glitch, .boot-glitch::before, .boot-glitch::after, .boot-scan { animation: none !important; } }
+
+.boot-grow { transform-origin: left; animation: boot-grow .8s ease both; }
+@keyframes boot-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.boot-face { animation: boot-face 8s cubic-bezier(.3,0,.4,1) .4s both; }
+@keyframes boot-face { from { opacity: 0; filter: blur(8px); } to { opacity: .42; filter: blur(0); } }
+@media (prefers-reduced-motion: reduce) { .boot-face { animation: none; opacity: .42; } }
+
+/* Glitch-out of the boot screen, then the page reveals itself (transform/opacity only, cheap to animate) */
+.boot-out { animation: boot-out .75s steps(1) 1 both; will-change: transform; }
+@keyframes boot-out { 0% { transform: translateX(0); } 8% { transform: translateX(-10px) skewX(6deg); } 16% { transform: translateX(8px); } 24% { transform: translateX(-4px) skewX(-8deg); } 34% { transform: translateX(12px); } 46% { transform: translateX(-6px) skewX(4deg); } 60% { transform: translateX(5px); opacity: .55; } 75% { transform: translateX(-9px) skewX(-5deg); opacity: 1; } 88% { transform: translateX(3px); opacity: .4; } 100% { transform: none; opacity: 0; } }
+.boot-flash { position: absolute; inset: 0; z-index: 30; pointer-events: none; background: repeating-linear-gradient(to bottom, rgba(0,242,58,.18) 0 3px, transparent 3px 9px); mix-blend-mode: screen; animation: boot-flash .75s steps(1) 1 both; }
+@keyframes boot-flash { 0%,100% { opacity: 0; } 10% { opacity: 1; } 22% { opacity: .2; } 38% { opacity: 1; } 55% { opacity: .1; } 70% { opacity: .9; } 85% { opacity: .3; } }
+.boot-reveal { animation: boot-reveal .7s ease-out both; }
+@keyframes boot-reveal { 0% { opacity: 0; transform: translateY(14px); } 30% { opacity: .8; transform: translateX(-4px); } 45% { opacity: .3; transform: translateX(4px); } 60% { opacity: 1; transform: none; } 100% { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .boot-out, .boot-flash, .boot-reveal { animation: none !important; } }
+
+/* Small, quiet skip button for the mobile boot */
+.boot-skip { position: absolute; right: 16px; bottom: 14px; z-index: 40; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; font-family: var(--font-terminal), var(--font-mono); font-size: 15px; letter-spacing: .18em; color: rgba(0,242,58,.8); background: rgba(0,0,0,.55); border: 1px solid rgba(0,242,58,.3); border-radius: 4px; text-shadow: 0 0 8px rgba(0,242,58,.5); animation-delay: 1.2s; transition: color .2s, border-color .2s, box-shadow .2s; }
+.boot-skip:hover, .boot-skip:active { color: #00f23a; border-color: #00f23a; box-shadow: 0 0 14px rgba(0,242,58,.35); }
+.boot-skip:focus-visible { outline: 2px solid #00f23a; outline-offset: 2px; }
+
+/* boot: big scroll-down arrow */
+.boot-bounce { animation: boot-bounce 1.4s ease-in-out infinite; }
+@keyframes boot-bounce { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+/* responsive safety net: single-column grids must not grow past the viewport (content like
+   horizontally scrollable thumbnail rows otherwise widens the implicit column); any grid-cols-* utility still wins */
+@layer base {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  html, body { max-width: 100%; overflow-x: clip; }
+}
